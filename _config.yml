@@ -1,0 +1,34 @@
+remote_theme: chrisrhymes/bulma-clean-theme
+
+# Site Settings
+lang: en
+title: French -er Verb Conjugation
+tagline: French Regular -er Verb Conjugation
+#email: your-email@domain.com
+description: >
+  A quizzing application for practice with regular -er verbs
+baseurl: "/er-conjugate"
+url: "https://asherhe.github.io"
+permalink: pretty
+#favicon: /path/to/favicon.png
+gh_sponsor: chrisrhymes
+#hide_share_buttons: true
+#theme_color: '#eeeeee'
+#fixed_navbar: top
+#direction: one of <ltr, rtl, auto>, default: ltr
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - kramdown-parser-gfm
+  - jekyll-redirect-from
+
+livereload: true
+
+sass:
+  style: compressed
+
+google_analytics: G-PXFB1R5784
+
+markdown: kramdown
+highlighter: rouge
