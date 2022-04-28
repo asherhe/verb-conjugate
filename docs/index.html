@@ -13,8 +13,8 @@
 <meta property="og:site_name" content="French -er Verb Conjugation">
 <meta property="og:description" content="Practice with French -er verb conjugation  Note: When entering input include just the verb (no &quot;je&quot;, &quot;tu&quot;, &quot;il&quot;, etc.)  Sorry, JavaScript must be enabled to run this application.    document.getEleme">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-04-28T22:15:51.070Z">
-<meta property="article:modified_time" content="2022-04-28T16:25:13.821Z">
+<meta property="article:published_time" content="2022-04-28T22:26:06.371Z">
+<meta property="article:modified_time" content="2022-04-28T22:26:05.110Z">
 <meta property="article:author" content="asherhe">
 <meta property="article:tag" content="french er-verbs quizzer">
 <meta name="twitter:card" content="summary">
@@ -106,13 +106,11 @@
   const submitButton = document.getElementById("submit");
   const score = document.getElementById("score");
 
-  const inputColor = input.style.color;
-
   input.onkeydown = function (e) {
     if (e.keyCode === 13) {
       submitButton.click();
       submitButton.classList.add("focus");
-      setTimeout(() => { submitButton.classList.remove("focus") }, 500);
+      setTimeout(() => { submitButton.classList.remove("focus") }, 250);
     }
   };
 
@@ -138,19 +136,20 @@
     const conjugated = erConjugate(verb, pronoun);
 
     total++;
+    var answerCorrect = "correct";
     if (userInput.toLowerCase() === conjugated) {
       correct++;
-      input.style.color = "#76e66e";
     } else {
-      input.style.color = "#ff7700";
+      answerCorrect = "incorrect";
       input.value = conjugated;
     }
     score.innerHTML = `<b>${correct}/${total}</b> (${Math.round(correct / total * 100)}%)`;
     
+    input.classList.add(answerCorrect);
     input.readOnly = true;
     submitButton.disabled = true;
     setTimeout(() => {
-      input.style.color = inputColor;
+      input.classList.remove(answerCorrect);
       input.readOnly = false;
       submitButton.disabled = false;
       next();

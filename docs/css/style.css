@@ -1674,7 +1674,14 @@ input {
 input:focus {
   outline: none;
   border-bottom-color: #2bbc8a;
-  transition: all 0.25s ease-in-out;
+}
+input.correct {
+  color: #76e66e;
+  border-bottom-color: #76e66e;
+}
+input.incorrect {
+  color: #f70;
+  border-bottom-color: #f70;
 }
 button {
   color: #c9cacc;
@@ -1682,11 +1689,10 @@ button {
   border: 3px solid #c9cacc;
   border-radius: 5px;
   font-family: "Menlo", "Meslo LG", monospace;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.25s ease-in-out;
 }
 button.focus,
 button:hover {
   border-color: #2bbc8a;
   background-color: #2bbc8a;
-  transition: all 0.25s ease-in-out;
 }
