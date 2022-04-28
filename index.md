@@ -1,5 +1,6 @@
 ---
 title: "French -er Verb Conjugation"
+layout: page
 permalink: /
 ---
 
@@ -14,7 +15,7 @@ Practice with French -er verb conjugation
 
 <b>Conjugate <span id="prompt">`loading...`</span>:</b>
 
-<input type="text" id="input"></input>
+<input type="text" id="input">
 
 <button onclick="submit()" id="submit">Check</button>
 
@@ -28,6 +29,12 @@ Practice with French -er verb conjugation
   const input = document.getElementById("input");
   const submitButton = document.getElementById("submit");
   const score = document.getElementById("score");
+
+  input.onKeyDown = function(e) {
+    if (e.keyCode === 13) {
+      submit();
+    }
+  };
 
   var correct = 0;
   var total = 0;
