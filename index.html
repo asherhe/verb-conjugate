@@ -4,22 +4,33 @@ layout: page
 permalink: /
 ---
 
-Practice with French -er verb conjugation
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PXFB1R5784"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
 
-***Note**: When entering input include just the verb (no "je", "tu", "il", etc.)*
+  gtag('config', 'G-PXFB1R5784');
+</script>
+
+<p>Practice with French -er verb conjugation</p>
+
+<p><i><b>Note</b>: When entering input include just the verb (no "je", "tu", "il", etc.)</i></p>
 
 <h2 id="nosupport">Sorry, JavaScript must be enabled to run this application.</h2>
 <script>
   document.getElementById("nosupport").style.display = "none";
 </script>
 
-<b>Conjugate <span id="prompt">`loading...`</span>:</b>
+<p>
+  <b>Conjugate <span id="prompt"><i>loading...</i></span>:</b>
+  <br>
+  <input type="text" id="input">
+  <button onclick="submit()" id="submit">Check</button>
+</p>
 
-<input type="text" id="input">
-
-<button onclick="submit()" id="submit">Check</button>
-
-<span id="score"><b>0/0</b> (100%)</span>
+<p id="score"><b>0/0</b> (100%)</p>
 
 <script src="conjugate.js"></script>
 <script src="verbs.js"></script>
@@ -75,7 +86,7 @@ Practice with French -er verb conjugation
       input.readOnly = false;
       submitButton.disabled = false;
       next();
-    }, 1500);
+    }, 500);
   }
 
   next();
