@@ -1290,9 +1290,9 @@ article .content .caption {
   margin-right: 0;
 }
 #footer a {
-  color: #908d8d;
-  text-decoration: underline;
+  color: #d480aa;
   background-image: none;
+  transition: all 0.25s ease-in-out;
 }
 #footer a:hover {
   color: #a6a4a4;
@@ -1301,6 +1301,9 @@ article .content .caption {
   height: 20px;
   vertical-align: middle;
   line-height: 20px;
+}
+.footer-right a {
+  margin-left: 20px;
 }
 @media (min-width: 39rem) {
   #footer {
