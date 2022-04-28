@@ -41,7 +41,7 @@ const verbs = [
   "réver",
   "skier",
   "téléphoner",
-  "travailleur",
+  "travailler",
   "trouver",
   "utiliser",
   "visiter",
