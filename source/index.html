@@ -1,18 +1,7 @@
 ---
-title: "French -er Verb Conjugation"
 layout: page
 permalink: /
 ---
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PXFB1R5784"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag('js', new Date());
-
-  gtag('config', 'G-PXFB1R5784');
-</script>
 
 <p>Practice with French -er verb conjugation</p>
 
@@ -41,9 +30,13 @@ permalink: /
   const submitButton = document.getElementById("submit");
   const score = document.getElementById("score");
 
+  const inputColor = input.style.color;
+
   input.onkeydown = function (e) {
     if (e.keyCode === 13) {
-      submit();
+      submitButton.click();
+      submitButton.classList.add("focus");
+      setTimeout(() => { submitButton.classList.remove("focus") }, 500);
     }
   };
 
@@ -61,7 +54,6 @@ permalink: /
     pronoun = randomElement(pronouns);
     prompt.innerHTML = `${pronoun} / ${verb}`;
     input.value = "";
-    input.focus();
   }
 
   function submit() {
@@ -72,9 +64,9 @@ permalink: /
     total++;
     if (userInput.toLowerCase() === conjugated) {
       correct++;
-      input.style.color = "green";
+      input.style.color = "#76e66e";
     } else {
-      input.style.color = "red";
+      input.style.color = "#ff7700";
       input.value = conjugated;
     }
     score.innerHTML = `<b>${correct}/${total}</b> (${Math.round(correct / total * 100)}%)`;
@@ -82,11 +74,11 @@ permalink: /
     input.readOnly = true;
     submitButton.disabled = true;
     setTimeout(() => {
-      input.style.color = "black";
+      input.style.color = inputColor;
       input.readOnly = false;
       submitButton.disabled = false;
       next();
-    }, 500);
+    }, 1000);
   }
 
   next();
