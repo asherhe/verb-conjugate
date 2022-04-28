@@ -9,14 +9,18 @@ const endings = {
   elles: "ent",
 };
 
+const pronouns = Object.keys(endings);
+
 const hardVowels = ["a", "o", "u"];
 
 /**
  * Conjugates a regular -er verb with a given pronoun
- * @param {string} verb The regular -er verb to conjugate
+ * @param {string} verb The regular -er verb to conjugate (including "er")
  * @param {string} pronoun The pronoun to conjugate the verb with
  */
 function erConjugate(verb, pronoun) {
+  verb = verb.slice(0, -2);
+
   /** @type string */
   var ending = endings[pronoun];
 
@@ -24,7 +28,7 @@ function erConjugate(verb, pronoun) {
     switch (verb.charAt(verb.length - 1)) {
       // cedille
       case "c":
-        verb = verb.slice(0, verb.length - 1) + "ç";
+        verb = verb.slice(0, -1) + "ç";
         break;
       // soft g
       case "g":
