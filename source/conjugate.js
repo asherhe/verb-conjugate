@@ -181,7 +181,7 @@ const verbClasses = [
       "elle": "a",
       "qui": "a",
       "on": "a",
-      "nous": "avon",
+      "nous": "avons",
       "vous": "avez",
       "ils": "ont",
       "elles": "ont",
