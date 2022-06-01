@@ -3,6 +3,9 @@ layout: page
 permalink: /
 ---
 
+<!-- Import verbs -->
+<script src="./conjugate.js"></script>
+
 <p>Practice with French -er verb conjugation</p>
 
 <p><i><b>Note</b>: When entering input include just the verb (no "je", "tu", "il", etc.)</i></p>
@@ -19,10 +22,19 @@ permalink: /
   <button onclick="submit()" id="submit">Check</button>
 </p>
 
-<p id="score"><b>0/0</b> (100%)</p>
+<div id="checkboxes">
+  <b>Include:</b>
+</div>
 
-<script src="conjugate.js"></script>
-<script src="verbs.js"></script>
+<script>
+  verbClasses.forEach((verbClass) => {
+    var name = verbClass.name.replaceAll(/\s/g, "-").replaceAll(/(^(-+))|((-+)$)/g, "");
+    checkboxes.innerHTML += `<input type="checkbox" id="checkbox-${name}" name="${name}" checked>
+    <label for="${name}">${verbClass.name}</label>`;
+  })
+</script>
+
+<p id="score"><b>0/0</b> (100%)</p>
 
 <script>
   const prompt = document.getElementById("prompt");
@@ -41,23 +53,27 @@ permalink: /
   var correct = 0;
   var total = 0;
 
-  var verb, pronoun;
+  var verb, pronoun, conjugated;
   
   function randomElement(array) {
     return array[Math.floor(Math.random() * array.length)];
   }
 
   function next() {
-    verb = randomElement(verbs);
-    pronoun = randomElement(pronouns);
+    var verbClass;
+    do {
+      verbClass = randomElement(verbClasses);
+      name = verbClass.name.replaceAll(/\s/g, "-").replaceAll(/(^(-+))|((-+)$)/g, "");
+    } while (!document.getElementById(`checkbox-${name}`).checked);
+    verb = randomElement(verbClass.verbs);
+    pronoun = randomElement(Object.keys(verbClass.endings));
+    conjugated = verbClass.conjugate(verb, pronoun);
     prompt.innerHTML = `${pronoun} / ${verb}`;
     input.value = "";
   }
 
   function submit() {
     userInput = input.value;
-
-    const conjugated = erConjugate(verb, pronoun);
 
     total++;
     var answerCorrect = "correct";

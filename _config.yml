@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: French -er Verb Conjugation
-subtitle: "Practice with Regular -er Verbs"
-description: "A helpful quizzing application for practice with regular -er verbs"
-keywords: french er-verbs quizzer
+title: French verb conjugation
+subtitle: "Practice with conjugating French verbs"
+description: "Practice with conjugating French verbs"
+keywords: french verbs quizzer
 author: asherhe
 language: en
 timezone: "America/Los_Angeles"
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://asherhe.github.io/er-conjugate
+url: http://asherhe.github.io/verb-conjugate
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
