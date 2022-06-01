@@ -15,12 +15,21 @@ permalink: /
   document.getElementById("nosupport").style.display = "none";
 </script>
 
-<p>
+<div>
   <b>Conjugate <span id="prompt"><i>[loading...]</i></span>:</b>
   <br>
   <input type="text" id="input">
   <button onclick="submit()" id="submit">Check</button>
-</p>
+</div>
+
+<div id="specialCharInput">
+</div>
+<script>
+  const specialCharInput = document.getElementById("specialCharInput")
+  for (let character of ["é", "è", "ê", "ç"]) {
+    specialCharInput.innerHTML += `<button onclick="input.value += '${character}'">${character}</button>`;
+  }
+</script>
 
 <div id="checkboxes">
   <b>Include:</b>
@@ -30,7 +39,7 @@ permalink: /
   verbClasses.forEach((verbClass) => {
     var name = verbClass.name.replaceAll(/\s/g, "-").replaceAll(/(^(-+))|((-+)$)/g, "");
     checkboxes.innerHTML += `<span class="checkbox-group"><input type="checkbox" id="checkbox-${name}" name="${name}" checked><label for="${name}">${verbClass.name}</label></span>`;
-  })
+  });
 </script>
 
 <p id="score"><b>0/0</b> (100%)</p>

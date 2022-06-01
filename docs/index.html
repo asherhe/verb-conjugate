@@ -13,8 +13,8 @@
 <meta property="og:site_name" content="French verb conjugation">
 <meta property="og:description" content="Practice with French -er verb conjugation  Note: When entering input include just the verb (no &quot;je&quot;, &quot;tu&quot;, &quot;il&quot;, etc.)  Sorry, JavaScript must be enabled to run this application.    document.getEl">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-06-01T05:02:40.356Z">
-<meta property="article:modified_time" content="2022-06-01T05:02:40.356Z">
+<meta property="article:published_time" content="2022-06-01T14:36:22.254Z">
+<meta property="article:modified_time" content="2022-06-01T14:36:21.139Z">
 <meta property="article:author" content="asherhe">
 <meta property="article:tag" content="french verbs quizzer">
 <meta name="twitter:card" content="summary">
@@ -62,14 +62,7 @@
       <h1>French verb conjugation</h1>
     </div>
   </a>
-  <div id="nav">
-    <ul>
-      <li class="icon">
-        <a href="#" aria-label="Menu"><i class="fas fa-bars fa-2x"></i></a>
-      </li>
-      
-    </ul>
-  </div>
+  
 </header>
 
         
@@ -91,12 +84,21 @@
   document.getElementById("nosupport").style.display = "none";
 </script>
 
-<p>
+<div>
   <b>Conjugate <span id="prompt"><i>[loading...]</i></span>:</b>
   <br>
   <input type="text" id="input">
   <button onclick="submit()" id="submit">Check</button>
-</p>
+</div>
+
+<div id="specialCharInput">
+</div>
+<script>
+  const specialCharInput = document.getElementById("specialCharInput")
+  for (let character of ["é", "è", "ê", "ç"]) {
+    specialCharInput.innerHTML += `<button onclick="input.value += '${character}'">${character}</button>`;
+  }
+</script>
 
 <div id="checkboxes">
   <b>Include:</b>
@@ -106,7 +108,7 @@
   verbClasses.forEach((verbClass) => {
     var name = verbClass.name.replaceAll(/\s/g, "-").replaceAll(/(^(-+))|((-+)$)/g, "");
     checkboxes.innerHTML += `<span class="checkbox-group"><input type="checkbox" id="checkbox-${name}" name="${name}" checked><label for="${name}">${verbClass.name}</label></span>`;
-  })
+  });
 </script>
 
 <p id="score"><b>0/0</b> (100%)</p>
