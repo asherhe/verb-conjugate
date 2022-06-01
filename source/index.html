@@ -16,7 +16,7 @@ permalink: /
 </script>
 
 <p>
-  <b>Conjugate <span id="prompt"><i>loading...</i></span>:</b>
+  <b>Conjugate <span id="prompt"><i>[loading...]</i></span>:</b>
   <br>
   <input type="text" id="input">
   <button onclick="submit()" id="submit">Check</button>
@@ -29,8 +29,7 @@ permalink: /
 <script>
   verbClasses.forEach((verbClass) => {
     var name = verbClass.name.replaceAll(/\s/g, "-").replaceAll(/(^(-+))|((-+)$)/g, "");
-    checkboxes.innerHTML += `<input type="checkbox" id="checkbox-${name}" name="${name}" checked>
-    <label for="${name}">${verbClass.name}</label>`;
+    checkboxes.innerHTML += `<span class="checkbox-group"><input type="checkbox" id="checkbox-${name}" name="${name}" checked><label for="${name}">${verbClass.name}</label></span>`;
   })
 </script>
 

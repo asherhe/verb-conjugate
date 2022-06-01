@@ -1664,7 +1664,7 @@ code {
 .highlight .line {
   height: 22px;
 }
-input {
+input[type="text"] {
   color: #c9cacc;
   background-color: #1d1f21;
   box-shadow: none;
@@ -1674,15 +1674,15 @@ input {
   font-family: "Menlo", "Meslo LG", monospace;
   transition: all 0.25s ease-in-out;
 }
-input:focus {
+input[type="text"]:focus {
   outline: none;
   border-bottom-color: #2bbc8a;
 }
-input.correct {
+input[type="text"].correct {
   color: #76e66e;
   border-bottom-color: #76e66e;
 }
-input.incorrect {
+input[type="text"].incorrect {
   color: #f70;
   border-bottom-color: #f70;
 }
@@ -1697,5 +1697,30 @@ button {
 button.focus,
 button:hover {
   border-color: #2bbc8a;
+  background-color: #2bbc8a;
+}
+.checkbox-group {
+  padding-right: 15px;
+}
+.checkbox-group {
+  display: inline-flex;
+  cursor: pointer;
+  position: relative;
+}
+.checkbox-group > label {
+  margin-left: 5px;
+}
+.checkbox-group > input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  background-color: #3c4145;
+  cursor: pointer;
+  transition: background-color 0.25s;
+}
+.checkbox-group > input[type="checkbox"]:checked {
   background-color: #2bbc8a;
 }
