@@ -1733,9 +1733,11 @@ button:hover {
   border: 3px solid #c9cacc;
   border-radius: 20%;
   cursor: pointer;
+  transform: scale(0.6);
   transition: all 0.25s;
 }
 .checkbox-group > input[type="checkbox"]:checked {
   border-color: #2bbc8a;
   background-color: #2bbc8a;
+  transform: scale(1);
 }
