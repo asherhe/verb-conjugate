@@ -27,7 +27,7 @@ permalink: /
 <script>
   const specialCharInput = document.getElementById("specialCharInput")
   for (let character of ["é", "è", "ê", "ç"]) {
-    specialCharInput.innerHTML += `<button onclick="input.value += '${character}'">${character}</button>`;
+    specialCharInput.innerHTML += `<button onclick="input.value += '${character}';input.focus()">${character}</button>`;
   }
 </script>
 
