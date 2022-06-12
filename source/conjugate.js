@@ -241,4 +241,58 @@ const verbClasses = [
       "elles": "vont",
     },
   },
+  {
+    name: "devoir",
+    verbs: [
+      "devoir"
+    ],
+    /**
+     * @param {string} verb
+     * @param {string} pronoun
+     * @returns {string}
+     */
+    conjugate: function (verb, pronoun) {
+      return this.endings[pronoun]
+    },
+    
+    endings: {
+      "je": "dois",
+      "tu": "dois",
+      "il": "doit",
+      "elle": "doit",
+      "qui": "doit",
+      "on": "doit",
+      "nous": "devons",
+      "vous": "devez",
+      "ils": "doivent",
+      "elles": "doivent",
+    },
+  },
+  {
+    name: "pouvoir",
+    verbs: [
+      "pouvoir"
+    ],
+    /**
+     * @param {string} verb
+     * @param {string} pronoun
+     * @returns {string}
+     */
+    conjugate: function (verb, pronoun) {
+      return this.endings[pronoun]
+    },
+    
+    endings: {
+      "je": "peux",
+      "tu": "peux",
+      "il": "peut",
+      "elle": "peut",
+      "qui": "peut",
+      "on": "peut",
+      "nous": "pouvons",
+      "vous": "pouvez",
+      "ils": "peuvent",
+      "elles": "peuvent",
+    },
+  },
 ]
