@@ -38,7 +38,7 @@ permalink: /
 <script>
   verbClasses.forEach((verbClass) => {
     var name = verbClass.name.replaceAll(/\s/g, "-").replaceAll(/(^(-+))|((-+)$)/g, "");
-    checkboxes.innerHTML += `<span class="checkbox-group"><input type="checkbox" id="checkbox-${name}" name="${name}" checked><label for="${name}">${verbClass.name}</label></span>`;
+    checkboxes.innerHTML += `<span class="checkbox-group"><input type="checkbox" id="checkbox-${name}" name="${name}" onclick="next()" checked><label for="${name}">${verbClass.name}</label></span>`;
   });
 </script>
 
@@ -74,7 +74,7 @@ permalink: /
       name = verbClass.name.replaceAll(/\s/g, "-").replaceAll(/(^(-+))|((-+)$)/g, "");
     } while (!document.getElementById(`checkbox-${name}`).checked);
     verb = randomElement(verbClass.verbs);
-    pronoun = randomElement(Object.keys(verbClass.endings));
+    pronoun = randomElement(Object.keys(verbClass.conj));
     conjugated = verbClass.conjugate(verb, pronoun);
     prompt.innerHTML = `${pronoun} / ${verb}`;
     input.value = "";
