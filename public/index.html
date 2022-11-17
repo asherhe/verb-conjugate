@@ -13,8 +13,8 @@
 <meta property="og:site_name" content="French verb conjugation">
 <meta property="og:description" content="Practice with French verb conjugation  Note: When entering input include just the verb (no &quot;je&quot;, &quot;tu&quot;, &quot;il&quot;, etc.)  Sorry, JavaScript must be enabled to run this application.    document.getElemen">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-06-12T14:54:54.812Z">
-<meta property="article:modified_time" content="2022-06-02T05:33:10.597Z">
+<meta property="article:published_time" content="2022-11-17T03:29:15.268Z">
+<meta property="article:modified_time" content="2022-11-17T03:29:13.666Z">
 <meta property="article:author" content="asherhe">
 <meta property="article:tag" content="french verbs quizzer">
 <meta name="twitter:card" content="summary">
@@ -107,7 +107,7 @@
 <script>
   verbClasses.forEach((verbClass) => {
     var name = verbClass.name.replaceAll(/\s/g, "-").replaceAll(/(^(-+))|((-+)$)/g, "");
-    checkboxes.innerHTML += `<span class="checkbox-group"><input type="checkbox" id="checkbox-${name}" name="${name}" checked><label for="${name}">${verbClass.name}</label></span>`;
+    checkboxes.innerHTML += `<span class="checkbox-group"><input type="checkbox" id="checkbox-${name}" name="${name}" onclick="next()" checked><label for="${name}">${verbClass.name}</label></span>`;
   });
 </script>
 
@@ -143,7 +143,7 @@
       name = verbClass.name.replaceAll(/\s/g, "-").replaceAll(/(^(-+))|((-+)$)/g, "");
     } while (!document.getElementById(`checkbox-${name}`).checked);
     verb = randomElement(verbClass.verbs);
-    pronoun = randomElement(Object.keys(verbClass.endings));
+    pronoun = randomElement(Object.keys(verbClass.conj));
     conjugated = verbClass.conjugate(verb, pronoun);
     prompt.innerHTML = `${pronoun} / ${verb}`;
     input.value = "";

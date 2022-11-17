@@ -77,18 +77,16 @@ const verbClasses = [
       verb = verb.slice(0, -2);
       
       /** @type string */
-      var ending = this.endings[pronoun];
+      var ending = this.conj[pronoun];
       
       return softenEnding(verb, ending)
     },
     
-    endings: {
+    conj: {
       "je": "e",
       "tu": "es",
       "il": "e",
       "elle": "e",
-      "qui": "e",
-      "on": "e",
       "nous": "ons",
       "vous": "ez",
       "ils": "ent",
@@ -115,22 +113,57 @@ const verbClasses = [
       verb = verb.slice(0, -2);
       
       /** @type string */
-      var ending = this.endings[pronoun];
+      var ending = this.conj[pronoun];
       
       return softenEnding(verb, ending)
     },
     
-    endings: {
+    conj: {
       "je": "s",
       "tu": "s",
       "il": "",
       "elle": "",
-      "qui": "",
-      "on": "",
       "nous": "ons",
       "vous": "ez",
       "ils": "ent",
       "elles": "ent",
+    },
+  },
+  {
+    name: "-ir verbs",
+    verbs: [
+      "applaudir",
+      "grandir",
+      "maigrir",
+      "obéir",
+      "réfléchir",
+      "remplir",
+      "réussir",
+      "rougir",
+    ],
+    /**
+     * @param {string} verb
+     * @param {string} pronoun
+     * @returns {string}
+     */
+    conjugate: function (verb, pronoun) {
+      verb = verb.slice(0, -2);
+      
+      /** @type string */
+      var ending = this.conj[pronoun];
+      
+      return softenEnding(verb, ending)
+    },
+    
+    conj: {
+      "je": "is",
+      "tu": "is",
+      "il": "it",
+      "elle": "it",
+      "nous": "issons",
+      "vous": "issez",
+      "ils": "issent",
+      "elles": "issent",
     },
   },
   {
@@ -144,16 +177,14 @@ const verbClasses = [
      * @returns {string}
      */
     conjugate: function (verb, pronoun) {
-      return this.endings[pronoun]
+      return this.conj[pronoun]
     },
     
-    endings: {
+    conj: {
       "je": "suis",
       "tu": "es",
       "il": "est",
       "elle": "est",
-      "qui": "est",
-      "on": "est",
       "nous": "sommes",
       "vous": "êtes",
       "ils": "sont",
@@ -171,16 +202,14 @@ const verbClasses = [
      * @returns {string}
      */
     conjugate: function (verb, pronoun) {
-      return this.endings[pronoun]
+      return this.conj[pronoun]
     },
     
-    endings: {
+    conj: {
       "je": "ai",
       "tu": "as",
       "il": "a",
       "elle": "a",
-      "qui": "a",
-      "on": "a",
       "nous": "avons",
       "vous": "avez",
       "ils": "ont",
@@ -198,16 +227,14 @@ const verbClasses = [
      * @returns {string}
      */
     conjugate: function (verb, pronoun) {
-      return this.endings[pronoun]
+      return this.conj[pronoun]
     },
     
-    endings: {
+    conj: {
       "je": "fais",
       "tu": "fais",
       "il": "fait",
       "elle": "fait",
-      "qui": "fait",
-      "on": "fait",
       "nous": "faitons",
       "vous": "faisez",
       "ils": "font",
@@ -225,16 +252,14 @@ const verbClasses = [
      * @returns {string}
      */
     conjugate: function (verb, pronoun) {
-      return this.endings[pronoun]
+      return this.conj[pronoun]
     },
     
-    endings: {
+    conj: {
       "je": "vais",
       "tu": "vas",
       "il": "va",
       "elle": "va",
-      "qui": "va",
-      "on": "va",
       "nous": "allons",
       "vous": "allez",
       "ils": "vont",
@@ -242,9 +267,9 @@ const verbClasses = [
     },
   },
   {
-    name: "devoir",
+    name: "vouloir",
     verbs: [
-      "devoir"
+      "vouloir"
     ],
     /**
      * @param {string} verb
@@ -252,20 +277,18 @@ const verbClasses = [
      * @returns {string}
      */
     conjugate: function (verb, pronoun) {
-      return this.endings[pronoun]
+      return this.conj[pronoun]
     },
     
-    endings: {
-      "je": "dois",
-      "tu": "dois",
-      "il": "doit",
-      "elle": "doit",
-      "qui": "doit",
-      "on": "doit",
-      "nous": "devons",
-      "vous": "devez",
-      "ils": "doivent",
-      "elles": "doivent",
+    conj: {
+      "je": "veux",
+      "tu": "veux",
+      "il": "veut",
+      "elle": "veut",
+      "nous": "voulons",
+      "vous": "voulez",
+      "ils": "veulent",
+      "elles": "veulent",
     },
   },
   {
@@ -279,20 +302,43 @@ const verbClasses = [
      * @returns {string}
      */
     conjugate: function (verb, pronoun) {
-      return this.endings[pronoun]
+      return this.conj[pronoun]
     },
     
-    endings: {
+    conj: {
       "je": "peux",
       "tu": "peux",
       "il": "peut",
       "elle": "peut",
-      "qui": "peut",
-      "on": "peut",
       "nous": "pouvons",
       "vous": "pouvez",
       "ils": "peuvent",
       "elles": "peuvent",
+    },
+  },
+  {
+    name: "devoir",
+    verbs: [
+      "devoir"
+    ],
+    /**
+     * @param {string} verb
+     * @param {string} pronoun
+     * @returns {string}
+     */
+    conjugate: function (verb, pronoun) {
+      return this.conj[pronoun]
+    },
+    
+    conj: {
+      "je": "dois",
+      "tu": "dois",
+      "il": "doit",
+      "elle": "doit",
+      "nous": "devons",
+      "vous": "devez",
+      "ils": "doivent",
+      "elles": "doivent",
     },
   },
 ]
